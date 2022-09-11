@@ -23,6 +23,9 @@ export class EditEventTypeComponent implements OnInit {
   userId: number  | null;
   userToken: string | null;
   eventIdParams: number;
+  globalEventName: string | undefined ;
+  globalEventDesc: string | undefined ;
+  
 
   // locationArr = [
   //   { id: 1, label: "Zoom", status: "false" },
@@ -57,11 +60,13 @@ export class EditEventTypeComponent implements OnInit {
     this.userToken = localStorage.getItem('userToken');;
     const routeParams = this.route.snapshot.paramMap;
     this.eventIdParams = Number(routeParams.get('id'));
+    this.getAllAvaibility();
   }
 
   ngOnInit(): void {
-    this.getAllAvaibility();
+    
     this.getEventDetails();
+   
   }
 
 
@@ -111,6 +116,9 @@ export class EditEventTypeComponent implements OnInit {
         this.eventDetails = res;
         console.log(this.eventDetails);
         
+        this.globalEventName = this.eventDetails[0].eventName;
+        
+        this.globalEventDesc = this.eventDetails[0].description; 
         // CheckBox Pre Check
 
     
@@ -165,6 +173,7 @@ export class EditEventTypeComponent implements OnInit {
             this.intervalArr[i].status = "true";
           }
         }
+        console.log(this.intervalArr);
        
         
 

@@ -13,12 +13,12 @@
         <div class="card-body">
           <div class="d-flex align-items-center">
             <div>
-              <h5 class="h3">Open Source</h5>
-              <p class="lead">Create events to share for people to book on your calendar.</p>
+              <h5 class="h3">{{this.globalEventName}}</h5>
+              <p>{{this.globalEventDesc}}</p>
              
               <div class="btn-toolbar mt-2 mb-2 mb-md-0">
                 <div class="btn-group me-2">
-                  <a href="https://requesttalk.netlify.app/u/{{userName}}/{{eventDetails[0].url}}" target="_blank" class="btn btn-sm btn-outline-secondary"><i class="fa fa-external-link"
+                  <a href="https://requesttalk.netlify.app/u/{{userName}}/{{this.eventDetails[0].url}}" target="_blank" class="btn btn-sm btn-outline-secondary"><i class="fa fa-external-link"
                     aria-hidden="true"></i>Preview</a>
                 
                   <button type="button" class="btn btn-sm btn-outline-secondary"  (click)="copyToClipBoard()"><i class="fa fa-clipboard"
